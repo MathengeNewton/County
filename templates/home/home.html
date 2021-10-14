@@ -1,0 +1,22 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="">
+        <div class="block">
+            <div class=" py-10 my-5 " style="color:#496998;font-size:200%;font-weight:900;">
+                <h1 class="text-center text-bold text-3xl my-5">Welcome</h1>
+                <h1 class="text-center text-bold">Tertiary Student Association Nyandarua County</h1>
+            </div>
+            <div class="flex justify-center w-full">
+                <div class="flex justify-between w-1/5">
+                    <div>
+                        <a href="{% url 'register_info' %}" class="btn btn-primary font-bold">Register</a>
+                    </div>
+                    <div class="">
+                        <a href="{% url 'login' %}" class="btn btn-primary font-bold" >Login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

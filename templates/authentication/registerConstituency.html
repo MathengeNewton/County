@@ -1,0 +1,90 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    {% endblock %}
+{% block content %}
+    <div class="flex justify-center w-full h-screen" style="color:#496998;">
+        <div class="flex w-2/3  h-4/5 rounded-lg shadow-lg mx-auto my-auto">
+            <div class="w-2/5 h-screen" >
+                <div class="flex h-4/5 w-full mx-auto my-auto">
+                    <!-- <div class="text-center">
+                    </div> -->
+                    <div class="flex justify-center px-4 py-4 shadow-lg">
+                        <img 
+                        src="https://cdn.24.co.za/files/Cms/General/d/9258/0091213aa2e44245be3025feabed19bb.jpg"
+                        style="width:100%; height:100%; opacity:.8;"
+                        class=""
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="w-3/5  max-h-4/5 overflow-y-auto block py-4" >
+                <h1 class="text-center py-4" style="font-size:130%;font-weight:900;">Tertiary Student Association Nyandarua</h1>
+
+                <div class="flex justify-center">
+                    
+                    <div class=" w-3/5 overflow-y-auto" >
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alert alert-danger flex justify-between" role="alert">
+                                    <div>
+                                        <strong> {{ message }} </strong>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                {% else %}
+                                    <div class="alert alert-success flex justify-between" role="alert">
+                                        <div>
+                                            <strong> {{ message }} </strong>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    <form action="" method="POST" class="px-3 py-5">
+                        {% csrf_token %}
+                        <div class="font-bold  "> Almost Done ! Pick your constituency</div>
+                        <div class="py-3">
+                            <div class="input-group">
+                                <input id="constituency-card-kinangop" type="radio" name="constituency" value="kinagop" required/>
+                                <label for="constituency-card-kinangop"><span><i
+                                        class='bx bx-current-location'></i>Kinagop</span></label>
+                                <input id="constituency-card-kipipiri" type="radio" name="constituency" value="kipipiri" required/>
+                                <label for="constituency-card-kipipiri"> <span><i
+                                        class='bx bx-current-location'></i>Kipipiri</span></label>
+                                <input id="constituency-card-olkalau" type="radio" name="constituency" value="olkalau" required/>
+                                <label for="constituency-card-olkalau"> <span><i
+                                        class='bx bx-current-location'></i>Ol Kalau</span></label>
+                                <input id="constituency-card-oljorok" type="radio" name="constituency" value="oljorok" required/>
+                                <label for="constituency-card-oljorok"> <span><i
+                                        class='bx bx-current-location'></i>Ol Jorok</span></label>
+                                <input id="constituency-card-ndaragwa" type="radio" name="constituency" value="ndaragua" required/>
+                                <label for="constituency-card-ndaragwa"> <span><i
+                                        class='bx bx-current-location'></i>Ndaragua</span></label>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mb-3">
+                            <button type="submit" class="btn btn-primary flex">
+                                <div>Finish</div>
+                            </button>
+                        </div>
+                        <div class="text-sm space-y-3 block">
+                            <div class="text-center">
+                            <span>Already have an Account ?</span>
+                            <a style="color:rgb(98, 45, 232)" class="curso-pointer" href="{% url 'login' %}"><u>Login</u></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

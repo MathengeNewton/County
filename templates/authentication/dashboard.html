@@ -1,0 +1,24 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    {% endblock %}
+{% block content %}
+      <div class="block px-10 py-20 justify-center w-full h-screen" style="color:#496998;">
+        <h1 class="text-center py-4" style="font-size:130%;font-weight:900;">Tertiary Student Association Nyandarua</h1>
+        <div class="text-center">
+          <div class="text-xl text-end">
+            Logout <b><u><a style="color:#496998" class="curso-pointer" href="{% url 'logout' %}">Here</a></u></b>.
+          </div>
+        </div>
+
+        <div class="text-center">
+          <div class="text-normal font-bold">
+            Welcome <u>{{user.name}} !</u>
+          </div>
+          <div class="text-xl">
+            Your Unique member code is<b> {{user.membershipNumber}}</b>.
+          </div>
+        </div>
+    </div>
+{% endblock %}
